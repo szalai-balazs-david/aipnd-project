@@ -167,7 +167,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Train a neural network on a set of images.')
     parser.add_argument('data_dir', type=pathlib.Path,
                         help='Path to data folder. Expected data folder contains 3 sub-directories (train, test, valid) each containing 102 subfolders numbered [1-102], storing image files.')
-    parser.add_argument('--save_path', type=pathlib.Path,
+    parser.add_argument('--save_dir', type=pathlib.Path,
                         default='checkpoint.pth',
                         help='Path to save the definition of the saved neural network')
     parser.add_argument('--arch', type=str, default='vgg16',
@@ -185,4 +185,4 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     
-    train(data_dir = str(args.data_dir), save_path = str(args.save_path), arch = args.arch, learn_rate = args.learn_rate, hidden_units = args.hidden_units, epochs = args.epochs, gpu = args.gpu, verbose = args.verbose)
+    train(data_dir = str(args.data_dir), save_path = str(args.save_dir), arch = args.arch, learn_rate = args.learn_rate, hidden_units = args.hidden_units, epochs = args.epochs, gpu = args.gpu, verbose = args.verbose)

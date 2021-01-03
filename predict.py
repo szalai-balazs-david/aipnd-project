@@ -16,11 +16,11 @@ import pathlib
 def load_checkpoint(filepath):
     checkpoint = torch.load(filepath)
     
-    if(checkpoint['basemodel'] == 'vgg16'):
+    if checkpoint['basemodel'] == 'vgg16':
         loaded_model = models.vgg16(pretrained=True)
-    elif arch == 'vgg13':
+    elif checkpoint['basemodel'] == 'vgg13':
         loaded_model = models.vgg13(pretrained=True)
-    elif arch == 'vgg11':
+    elif checkpoint['basemodel'] == 'vgg11':
         loaded_model = models.vgg11(pretrained=True)
     else:
         raise Exception('Unknown basemodel type')
